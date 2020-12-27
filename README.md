@@ -72,6 +72,7 @@ Below is a sample of a file stored on the pat `data/log_data!` in .JSON format:
  }!`
  
  **Database Schema**
+ 
  The database star schema is used in this the data mainly for the benefits of fast aggregation and the simplicity of the queries. The star schema is used to optimize queries for songs played. There two main tables that are used in this table model are the fact table and dimension tables.
  
  1. **Fact Table**
