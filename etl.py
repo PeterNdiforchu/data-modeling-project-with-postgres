@@ -6,6 +6,14 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+    -Opens and reads song_data file
+    -Inserts both song and artist records into songs table and artists table respectively.
+    Parameters:
+        cur (cursor): psycopg2 connection to postgres db
+        filepath (string): song_data filepath
+    
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -19,6 +27,13 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+    -Opens and reads the log_data file 
+    -Insert records into the artists, users and songsplay table based on variable constrainsts in sql_queries.py
+    Parameters:
+        cur (cursor): psycopg2 connection to postgres db
+        filepath (string): log_data filepath
+    """
     # open log file
     df = pd.read_json(filepath, lines=True) 
 
@@ -66,9 +81,19 @@ def process_log_file(cur, filepath):
         # insert songplay record
         songplay_data = (pd.to_datetime(row.ts, unit='ms'), row.userId, row.level, songid, artistid, row.sessionId, row.location, row.userAgent)
         cur.execute(songplay_table_insert, songplay_data)
-
+        
 
 def process_data(cur, conn, filepath, func):
+    """
+    -Execute the ETL pipeline process by processing all data files and storing to the sparkify db
+    -Get filepath and files necessary for executing ETL pipeline
+    -Process functions to execute datafiles and ETL processes.
+    Parameters:
+        cur: psycopg2 cursor
+        conn: psycopg2 connection object
+        filepath (string): location of the datafiles
+        func (function): function to execute datafiles (log_data and song_data)
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
