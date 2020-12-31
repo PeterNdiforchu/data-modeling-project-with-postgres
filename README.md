@@ -91,14 +91,14 @@ Below is a sample of a file stored on the pat `data/log_data` in .JSON format:
  ```
  songplays (
 	songplay_id SERIAL PRIMARY KEY,
-	start_time timestamp NOT NULL,
-	user_id varchar NOT NULL,
-	level varchar NULL,
-	song_id varchar NOT NULL,
-	artist_id varchar NOT NULL,
-	session_id int NOT NULL,
-	location varchar NULL,
-	user_agent varchar NULL
+	start_time timestamp,
+	user_id varchar,
+	level varchar,
+	song_id varchar,
+	artist_id varchar,
+	session_id int,
+	location varchar,
+	user_agent varchar
 );
 ```
 
@@ -109,11 +109,11 @@ Below is a sample of a file stored on the pat `data/log_data` in .JSON format:
   
 ```
   users (
-    user_id varchar PRIMARY KEY UNIQUE NOT NULL,
-    first_name varchar NULL,
-    last_name varchar NULL,
-    gender varchar NULL,
-    level varchar NULL
+    user_id varchar PRIMARY KEY,
+    first_name varchar,
+    last_name varchar,
+    gender varchar,
+    level varchar
 );
 ``` 
 
@@ -122,11 +122,11 @@ Below is a sample of a file stored on the pat `data/log_data` in .JSON format:
   
 ```
   songs (
-    song_id PRIMARY KEY UNIQUE NOT NULL,
-    title varchar NULL,
-    artist_id varchar NULL,
-    year int NULL,
-    duration numeric NULL
+    song_id varchar PRIMARY KEY,
+    title varchar NOT NULL,
+    artist_id varchar NOT NULL,
+    year varchar NOT NULL,
+    duration float NOT NULL
 );
 ```
 
@@ -135,11 +135,11 @@ Below is a sample of a file stored on the pat `data/log_data` in .JSON format:
   
  ```
  artists (
-	artist_id varchar PRIMARY KEY UNIQUE NOT NULL,
-	name varchar NULL,
-	location varchar NULL,
-	latitude decimal NULL,
-	longitude decimal NULL
+	artist_id varchar PRIMARY KEY,
+	name varchar NOT NULL,
+	location varchar NOT NULL,
+	latitude float NOT NULL,
+	longitude float NOT NULL
 );
  ```
 
@@ -148,13 +148,13 @@ Below is a sample of a file stored on the pat `data/log_data` in .JSON format:
   
   ```
   time (
-    start_time timestamp NOT NULL,
-    hour int NULL,
-    day int NULL,
-    week int NULL,
-    month int NULL,
-    year int NULL,
-    weekday int NULL
+    start_time timestamp primary key,
+    hour int NOT NULL,
+    day int NOT NULL,
+    week int NOT NULL,
+    month int NOT NULL,
+    year int NOT NULL,
+    weekday int NOT NULL
 );
   ```
 
