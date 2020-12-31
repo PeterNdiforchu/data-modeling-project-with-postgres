@@ -12,22 +12,22 @@ songplay_table_create = ("""
  create table if not exists songplays (
      songplay_id serial primary key,
      start_time timestamp NOT NULL,
-     user_id varchar NOT NULL,
-     level varchar NOT NULL,
-     song_id varchar NOT NULL,
-     artist_id varchar NOT NULL,
-     session_id int NOT NULL,
-     location varchar NOT NULL,
-     user_agent varchar NOT NULL)
+     user_id varchar,
+     level varchar,
+     song_id varchar,
+     artist_id varchar,
+     session_id int,
+     location varchar,
+     user_agent varchar)
  """)
 
 user_table_create = ("""
 create table if not exists users (
     user_id varchar primary key,
-    first_name varchar NOT NULL,
-    last_name varchar NOT NULL,
-    gender varchar NOT NULL,
-    level varchar NOT NULL
+    first_name varchar,
+    last_name varchar,
+    gender varchar,
+    level varchar
 )
 """)
 
@@ -49,8 +49,7 @@ artist_id varchar primary key,
 name varchar NOT NULL,
 location varchar NOT NULL,
 latitude float NOT NULL,
-longitude float NOT NULL
-)
+longitude float NOT NULL)
 """)
 
 time_table_create = ("""
@@ -62,8 +61,7 @@ day int NOT NULL,
 week int NOT NULL,
 month int NOT NULL,
 year int NOT NULL,
-weekday int NOT NULL
-)
+weekday int NOT NULL)
 """)
 
 # INSERT RECORDS
