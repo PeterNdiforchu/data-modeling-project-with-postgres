@@ -1,4 +1,4 @@
-#**SPARKIFY**#
+#**SPARKIFY**
 
 ##**Project Objectives**
 
